@@ -1,0 +1,14 @@
+roscore
+
+cd ~/ros_ws/
+catkin_make
+source devel/setup.bash
+
+
+
+rosrun talker talker
+
+rosrun listener listener
+
+
+rosrun talker_manager talker_manager

@@ -1,0 +1,16 @@
+git clone https://github.com/PX4/PX4-Autopilot.git —recursive
+sudo apt upgrade libignition-math2
+cd ~/PX4-Autopilot
+make px4_sitl gazebo
+
+
+
+
+roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"
+
+cd ~/PX4-Autopilot
+source ~/catkin_ws/devel/setup.bash
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+roslaunch px4 posix_sitl.launch
