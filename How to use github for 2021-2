@@ -1,0 +1,26 @@
+How to use github for 2021-2
+
+Project site
+https://github.com/bh2980/automaticsystem_develomept
+
+My class materials
+https://github.com/sisin21/class-2021-2.git
+
+my token
+#######
+
+
+cd Desktop/Class\ Materials/
+git clone https://github.com/bh2980/automaticsystem_develomept.git
+cd automaticsystem_develomept/
+
+git clone 
+
+cd Desktop/Class\ Materials/automaticsystem_develomept/
+
+git pull
+
+git add -A
+git commit -m ""
+git status
+git push
