@@ -1,0 +1,48 @@
+MATLAB 탐색 알고리즘을 이해하여 식인종 문제를 응용해보자
+https://simonwithwoogi.github.io/posts/matlabmcproblem/
+
+Localize TurtleBot Using Monte Carlo Localization
+https://kr.mathworks.com/help/nav/ug/localize-turtlebot-using-monte-carlo-localization.html
+
+04. Creating Map using Laser Scanner and Gmapping
+https://kiranpalla.com/autonomous-navigation-ros-differential-drive-robot-simulation/creating-map-using-laser-scanner-and-gmapping/
+
+gazebo에서 3D맵 만들기
+https://ola-page.tistory.com/4?category=941378
+내 컴퓨터에서는 제대로 되지 않는다.
+
+Gazebo plugins in ROS
+http://gazebosim.org/tutorials?tut=ros_gzplugins#GPULaser
+
+SLAM Map Builder
+https://kr.mathworks.com/help/nav/ref/slammapbuilder-app.html
+
+Perform SLAM Using 3-D Lidar Point Clouds
+https://kr.mathworks.com/help/nav/ug/perform-lidar-slam-using-3d-lidar-point-clouds.html
+
+OccupancyGrid
+https://kr.mathworks.com/help/ros/ref/occupancygrid_ros.html
+
+How to save point cloud data? (sfm)
+https://kr.mathworks.com/matlabcentral/answers/339625-how-to-save-point-cloud-data-sfm
+point cloud를 mat형식으로 저장하는 방법이다.
+
+
+Building a map using SLAM
+https://subscription.packtpub.com/book/hardware_and_creative/9781788478953/6/ch06lvl1sec63/building-a-map-using-slam
+
+https://github.com/bh2980/automaticsystem_develomept
+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
+
+
+cd Desktop/Class\ Materials/
+git clone https://github.com/bh2980/automaticsystem_develomept.git
+cd automaticsystem_develomept/
+
+
+cd Desktop/Class\ Materials/automaticsystem_develomept/
+
+git add 
+git commit -m "~~~"
+git status
+git push
