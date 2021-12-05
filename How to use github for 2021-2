@@ -1,26 +1,51 @@
 How to use github for 2021-2
 
-Project site
+### 2021-2 Project site
 https://github.com/bh2980/automaticsystem_develomept
 
-My class materials
+### My class materials
 https://github.com/sisin21/class-2021-2.git
 
-my token
-#######
+### My token
+1q2w3e4r!
 
-
+### Create Project folder
 cd Desktop/Class\ Materials/
 git clone https://github.com/bh2980/automaticsystem_develomept.git
 cd automaticsystem_develomept/
 
-git clone 
-
+### Shortcut Project github.com
 cd Desktop/Class\ Materials/automaticsystem_develomept/
 
+
+
+### Download file
+git clone 
+
+### Reload file
 git pull
 
+### Upload file
 git add -A
 git commit -m ""
 git status
 git push
+
+### Cancel Uploading ??
+git reset --hard
+
+### Make branch
+git branch
+git branch sisin21
+git checkout sisin21
+	git checkout -b sisin21
+git branch
+
+### Merge branch
+git checkout master
+git merge sisin21
+git push origin master
+
+### Delete branch
+git branch -d sisin21
+git branch
