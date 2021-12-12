@@ -2,9 +2,9 @@ clc; clear; close all;
 
 load ptcloud.mat
 
-maxLidarRange = 20;
+maxLidarRange = 300;
 
-referenceVector = [0 0 1];
+referenceVector = [1 0 1];
 maxDistance = 0.5;
 maxAngularDistance = 15;
 

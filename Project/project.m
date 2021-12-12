@@ -253,11 +253,11 @@ for i = 1:desiredRate*loopTime
     cloud=cat(3,pXY,dep_mm);
     cloud=reshape(cloud,[],3)/1000;
 
-    R=quat2rotm(quat);
-%     R1=[R t]*[cloud(k,:):1];
-    eul1 = [pi/2 0 pi/2];
-    rotmZYX = eul2rotm(eul1);
-    cloud=R*rotmZYX;
+%     R=quat2rotm(quat);
+% %     R1=[R t]*[cloud(k,:):1];
+%     eul1 = [pi/2 0 pi/2];
+%     rotmZYX = eul2rotm(eul1);
+%     cloud=R*rotmZYX;
 
     ptcloud{i} = cloud;
     save('ptcloud.mat',cloud);
