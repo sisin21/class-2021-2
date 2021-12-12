@@ -1,0 +1,155 @@
+clear; close all; clc
+%%
+X=zeros(5,5,5);
+
+X(:,:,1)=[1 1 0 0 0;
+          1 1 0 0 0;
+          1 1 0 0 0;
+          1 1 0 0 0;
+          1 1 0 0 0];
+      
+X(:,:,2)=[0 0 0 1 1;
+          0 0 0 1 1;
+          0 0 0 1 1;
+          0 0 0 1 1;
+          0 0 0 1 1];
+      
+X(:,:,3)=[1 0 0 0 1;
+          1 0 0 0 1;
+          1 0 0 0 1;
+          1 0 0 0 1;
+          1 0 0 0 1];
+
+X(:,:,4)=[1 0 0 0 0;
+          1 0 0 0 0;
+          1 0 0 0 0;
+          1 0 0 0 0;
+          1 0 0 0 0];
+      
+X(:,:,5)=[1 1 1 0 0;
+          1 1 1 0 0;
+          1 1 1 1 0;
+          0 1 1 1 0;
+          1 1 1 1 0];
+      
+X(:,:,6)=[0 1 1 0 0;
+          0 1 1 1 1;
+          0 1 1 1 1;
+          0 1 1 1 1;
+          0 1 1 1 1];
+      
+% imshow(X(:,:,1))
+
+D=[0 0 1;
+   1 0 0;
+   0 1 0;
+   0 1 0;
+   0 0 1;
+   1 0 0];
+   
+Num_input=25;
+Num_hidden1=50;
+Num_hidden2=50;
+Num_hidden3=50;
+Num_output=3;
+
+W1=2*rand(Num_hidden1,Num_input)-1; % initial weight
+W2=2*rand(Num_hidden2,Num_hidden1)-1; % initial weight
+W3=2*rand(Num_hidden3,Num_hidden2)-1; % initial weight
+W4=2*rand(Num_output,Num_hidden3)-1; % initial weight
+
+maxIter=5000;
+iter=1:maxIter;
+N=6;
+for epoch=1:maxIter
+    [W1,W2,W3,W4]=DeepRelu(W1,W2,W3,W4,X,D);
+
+end
+
+for k=1:N % check
+    x=reshape(X(:,:,k),25,1);
+    
+    v1=W1*x;
+    y1=Sigmoid(v1);
+
+    v2=W2*y1;
+    y2=Sigmoid(v2);
+
+    v3=W3*y2;
+    y3=Sigmoid(v3);
+
+    v=W4*y3;
+    y=Sigmoid(v);
+end
+
+% Test=X(:,:,6)
+Test=[0 0 0 0 0;
+      0 1 1 0 0;
+      0 1 1 0 0;
+      1 1 1 0 0;
+      1 1 1 0 0];
+  imshow(Test,'InitialMagnification','fit');
+   x=reshape(Test,25,1);
+    
+    v1=W1*x;
+    y1=Sigmoid(v1);
+
+    v2=W2*y1;
+    y2=Sigmoid(v2);
+
+    v3=W3*y2;
+    y3=Sigmoid(v3);
+
+    v=W4*y3;
+    y=Sigmoid(v)
+    
+    fprintf(' turn right : %f \n', y(3,1));
+    fprintf('go straight : %f \n', y(2,1));
+    fprintf(' turn  left : %f \n', y(1,1));
+
+
+function [W1,W2,W3,W4]=DeepRelu(W1,W2,W3,W4,X,D)
+    
+    alpha=0.001;
+    
+ % your code here  
+    N=5;
+  for k=1:N
+      x=X(k,:)';
+      d=D(k,:);
+      
+      x=reshape(X(:,:,k),25,1);
+      
+      v1=W1*x;
+      y1=Sigmoid(v1);
+      v2=W2*y1;
+      y2=Sigmoid(v2);
+      v3=W3*y2;
+      y3=Sigmoid(v3);
+      v=W4*y3;
+      y4=Sigmoid(v);
+      
+      e4=d'-y4;
+      delta4=e4;
+      e3=W4'*delta4;
+      delta3=y3.*(1-y3).*e3;
+      e2=W3'*delta3;
+      delta2=y2.*(1-y2).*e2;
+      e1=W2'*delta2;
+      delta1=y1.*(1-y1).*e1;
+      
+      dW1=alpha*delta1*x';
+      W1=W1+dW1;
+      dW2=alpha*delta2*y1';
+      W2=W2+dW2;
+      dW3=alpha*delta3*y2';
+      W3=W3+dW3;
+      dW4=alpha*delta4*y3';
+      W4=W4+dW4;
+  end
+end
+
+function y=Sigmoid(x)
+
+    y=1./(1+exp(-x));
+end
